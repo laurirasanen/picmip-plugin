@@ -1,8 +1,18 @@
 #include "commands.h"
 
-struct ConVarData
+struct ConCommandBaseData
 {
-	char				padding[28];
+	void*				pVMTBase;
+	ConCommandBase*		m_pNext;
+	bool				m_bRegistered;
+	const char*			m_pszName;
+	const char*			m_pszHelpString;
+	int					m_nFlags;
+};
+
+struct ConVarData : ConCommandBaseData
+{
+	void*				pVMT;
 	ConVar*				m_pParent;
 	const char*			m_pszDefaultValue;
 	char*				m_pszString;
