@@ -1,0 +1,9 @@
+.vs
+*.suo
+*.sdf
+*.user
+
+/Debug
+/Release
+/picmip/Debug
+/picmip/Release
